@@ -19,9 +19,9 @@ int main(int argc, const char* argv[]){
   }
 
   cv::imwrite("out.jpg", out);
-  cv::imshow("sample", out);
-  cv::waitKey(0);
-  cv::destroyAllWindows();
+  // cv::imshow("sample", out);
+  // cv::waitKey(0);
+  // cv::destroyAllWindows();
 
   return 0;
 }
