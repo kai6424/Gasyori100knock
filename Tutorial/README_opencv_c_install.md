@@ -29,6 +29,11 @@ $ cmake ..
 $ make -j4
 $ make install
 ```
+
+最新のOpenCVについては、 https://github.com/opencv/opencv/releases で確認する。
+
+2021/1/15現在の最新リリースは、4系はOpenCV 4.5.1であり、3系はOpenCV 3.4.13である。
+
 ### サンプルプログラム
 
 以下をsample.cppとして保存
@@ -69,6 +74,52 @@ $ ./sample
 ![](assets/sample6.png)
 
 次に画像処理の基本操作を説明していきます。（もう知ってるという人はスキップして、問題に進んでください！）
+
+#### OpenCVのライブラリが見つからないエラー
+```bash
+$ ./answer
+./answer: error while loading shared libraries: libopencv_core.so.3.4: cannot open shared object file: No such file or directory
+```
+
+1\. lddで実行ファイルの依存関係を確認する。
+
+https://webkaru.net/linux/ldd-command/
+
+```bash
+$ ldd ./{実行ファイル名}
+...
+        libopencv_core.so.3.4 => not found
+        libopencv_imgcodecs.so.3.4 => not found
+...
+```
+
+libopencv_core.so.3.4 と libopencv_imgcodecs.so.3.4 へのリンクがない。
+
+2\. ldcofig は最新の共有ライブラリに対して必要なリンクを作成したり、 ライブラリをキャッシュしたりする。
+
+```bash
+$ sudo ldconfig -v
+...
+        libopencv_core.so.3.4 -> libopencv_core.so.3.4.13
+...
+        libopencv_imgcodecs.so.3.4 -> libopencv_imgcodecs.so.3.4.13
+...
+```
+
+libopencv_core.so.3.4 と libopencv_imgcodecs.so.3.4 がライブラリにリンクされたことが分かる。
+
+3\. 再度ファイルを実行して、正しく修正されたことを確認する。
+
+```bash
+$ ./answer
+$ ll
+...
+-rw-r--r--  1 xxx xxx  10742 Jan 15 20:07 out.jpg
+```
+
+https://kazmax.zpp.jp/cmd/l/ldconfig.8.html
+
+https://github.com/cggos/dip_cvqt/issues/1
 
 ## 画像読み込み
 
