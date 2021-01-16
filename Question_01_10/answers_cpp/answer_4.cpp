@@ -78,7 +78,7 @@ cv::Mat Binarize_Otsu(cv::Mat gray){
   for (int y = 0; y < height; y++){
     for (int x = 0; x < width; x++){
       // Binarize
-      if (gray.at<uchar>(y, x) > th){
+      if (gray.at<uchar>(y, x) >= th){
         out.at<uchar>(y, x) = 255;
       } else {
         out.at<uchar>(y, x) = 0;
@@ -93,7 +93,7 @@ cv::Mat Binarize_Otsu(cv::Mat gray){
 
 int main(int argc, const char* argv[]){
   // read image
-  cv::Mat img = cv::imread("imori.jpg", cv::IMREAD_COLOR);
+  cv::Mat img = cv::imread("../imori.jpg", cv::IMREAD_COLOR);
 
   // BGR -> Gray
   cv::Mat gray = BGR2GRAY(img);
@@ -101,10 +101,10 @@ int main(int argc, const char* argv[]){
   // Gray -> Binary
   cv::Mat out = Binarize_Otsu(gray);
 
-  //cv::imwrite("out.jpg", out);
-  cv::imshow("sample", out);
-  cv::waitKey(0);
-  cv::destroyAllWindows();
+  cv::imwrite("answer_4.jpg", out);
+  // cv::imshow("sample", out);
+  // cv::waitKey(0);
+  // cv::destroyAllWindows();
 
   return 0;
 }
