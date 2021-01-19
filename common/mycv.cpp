@@ -56,4 +56,33 @@ namespace mycv
 
         return out;
     }
+
+    // Gray -> Binary
+    cv::Mat Binarize(cv::Mat gray, int th)
+    {
+        int width = gray.cols;
+        int height = gray.rows;
+
+        // prepare output
+        cv::Mat out = cv::Mat::zeros(height, width, CV_8UC1);
+
+        // each y, x
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                // Binarize
+                if (gray.at<uchar>(y, x) > th)
+                {
+                    out.at<uchar>(y, x) = 255;
+                }
+                else
+                {
+                    out.at<uchar>(y, x) = 0;
+                }
+            }
+        }
+
+        return out;
+    }
 } // namespace mycv
