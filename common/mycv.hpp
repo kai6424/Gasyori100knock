@@ -34,6 +34,13 @@ namespace mycv
      * @return 1チャンネルの画像
      */
     cv::Mat BGR2GRAY(cv::Mat img);
+
+    /**
+     * @brief Q3. 画像を二値化にする
+     * @param img 3チャンネルの画像。
+     * @return 1チャンネルの画像
+     */
+    cv::Mat Binarize(cv::Mat gray, int th);
 } // namespace mycv
 
 #endif
