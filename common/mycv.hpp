@@ -27,6 +27,13 @@ namespace mycv
      * @return 3チャンネルの画像
      */
     cv::Mat channel_swap(cv::Mat img);
+
+    /**
+     * @brief Q2. 画像をグレースケールにする
+     * @param img 3チャンネルの画像。
+     * @return 1チャンネルの画像
+     */
+    cv::Mat BGR2GRAY(cv::Mat img);
 } // namespace mycv
 
 #endif
