@@ -2,7 +2,11 @@
 # 以下のようにmakeを実行する。
 # $ make PROGRAM=answer
 PROGRAM = sample
-OBJS = ${PROGRAM}.o
+MYCV = mycv
+
+OBJS = ${PROGRAM}.o ${MYCV}.o
+
+PATH_MYCV = ../../common/${MYCV}.cpp
 
 # c++でPython3を使用する際に、以下を有効にする。
 # INCLUDES = -I/usr/include/python3.7
@@ -18,7 +22,7 @@ $(PROGRAM): $(OBJS)
 	$(CXX) -o $(PROGRAM) $^ $(LIBS)
 
 .cpp.o:
-	$(CXX) $(INCLUDES) -c $<
+	$(CXX) $(INCLUDES) -c $< ${PATH_MYCV}
 
 .PHONY: clean
 clean:
