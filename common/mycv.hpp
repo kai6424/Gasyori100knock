@@ -101,6 +101,14 @@ namespace mycv
      * @return 3チャンネル8ビットの符号なしの画像。
      */
     cv::Mat gaussian_filter(cv::Mat img, double sigma, int kernel_size);
+
+    /**
+     * @brief Q10. メディアンフィルタ
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @param kernel_size メディアンフィルタの一辺の長さ
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat median_filter(cv::Mat img, int kernel_size);
 } // namespace mycv
 
 #endif
