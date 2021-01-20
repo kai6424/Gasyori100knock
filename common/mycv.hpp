@@ -71,6 +71,13 @@ namespace mycv
      * @return 3チャンネル32ビットの浮動小数点数の画像。
      */
     cv::Mat inverse_hue(cv::Mat hsv);
+
+    /**
+     * @brief Q6. 画像を256色から4色に減色する
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat decrease_color(cv::Mat img);
 } // namespace mycv
 
 #endif
