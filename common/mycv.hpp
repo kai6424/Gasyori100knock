@@ -11,6 +11,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <iostream>
+#include <math.h>
 
 /**
  * @namespace mycv
@@ -42,6 +43,13 @@ namespace mycv
      * @return 1チャンネルの画像
      */
     cv::Mat Binarize(cv::Mat gray, int th);
+
+    /**
+     * @brief Q4. 画像を二値化にする（大津）
+     * @param gray 1チャンネルの画像。
+     * @return 1チャンネルの画像
+     */
+    cv::Mat Binarize_Otsu(cv::Mat gray);
 } // namespace mycv
 
 #endif
