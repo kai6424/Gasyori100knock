@@ -78,6 +78,13 @@ namespace mycv
      * @return 3チャンネル8ビットの符号なしの画像。
      */
     cv::Mat decrease_color(cv::Mat img);
+
+    /**
+     * @brief Q7. 平均プーリング
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat average_pooling(cv::Mat img);
 } // namespace mycv
 
 #endif
