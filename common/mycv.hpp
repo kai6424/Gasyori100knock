@@ -92,6 +92,15 @@ namespace mycv
      * @return 3チャンネル8ビットの符号なしの画像。
      */
     cv::Mat max_pooling(cv::Mat img);
+
+    /**
+     * @brief Q9. ガウシアンフィルタ
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @param sigma 標準偏差
+     * @param kernel_size ガウシアンフィルタの一辺のサイズ
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat gaussian_filter(cv::Mat img, double sigma, int kernel_size);
 } // namespace mycv
 
 #endif
