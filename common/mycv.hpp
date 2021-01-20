@@ -37,7 +37,8 @@ namespace mycv
 
     /**
      * @brief Q3. 画像を二値化にする
-     * @param img 3チャンネルの画像。
+     * @param gray 1チャンネルの画像。
+     * @param th しきい値。
      * @return 1チャンネルの画像
      */
     cv::Mat Binarize(cv::Mat gray, int th);
