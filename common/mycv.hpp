@@ -50,6 +50,27 @@ namespace mycv
      * @return 1チャンネルの画像
      */
     cv::Mat Binarize_Otsu(cv::Mat gray);
+
+    /**
+     * @brief Q5. BGR画像をHSV画像に変換する
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @return 3チャンネル32ビットの浮動小数点数の画像。
+     */
+    cv::Mat BGR2HSV(cv::Mat img);
+
+    /**
+     * @brief Q5. HSV画像をBGR画像に変換する
+     * @param hsv 3チャンネル32ビットの浮動小数点数の画像。
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat HSV2BGR(cv::Mat hsv);
+
+    /**
+     * @brief Q5. HSV画像の色相を反転する
+     * @param hsv 3チャンネル32ビットの浮動小数点数の画像。
+     * @return 3チャンネル32ビットの浮動小数点数の画像。
+     */
+    cv::Mat inverse_hue(cv::Mat hsv);
 } // namespace mycv
 
 #endif
