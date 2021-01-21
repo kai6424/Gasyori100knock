@@ -117,6 +117,14 @@ namespace mycv
      * @return 3チャンネル8ビットの符号なしの画像。
      */
     cv::Mat mean_filter(cv::Mat img, int kernel_size);
+
+    /**
+     * @brief Q12. モーションフィルタ
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @param kernel_size モーションフィルタの一辺の長さ。
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat motion_filter(cv::Mat img, int kernel_size);
 } // namespace mycv
 
 #endif
