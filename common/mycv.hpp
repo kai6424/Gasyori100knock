@@ -125,6 +125,14 @@ namespace mycv
      * @return 3チャンネル8ビットの符号なしの画像。
      */
     cv::Mat motion_filter(cv::Mat img, int kernel_size);
+
+    /**
+     * @brief Q13. MAX-MINフィルタ
+     * @param img 1チャンネル8ビットの符号なしの画像。
+     * @param kernel_size MAX-MINフィルタの一辺の長さ。
+     * @return 1チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat max_min_filter(cv::Mat img, int kernel_size);
 } // namespace mycv
 
 #endif
