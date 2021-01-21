@@ -109,6 +109,14 @@ namespace mycv
      * @return 3チャンネル8ビットの符号なしの画像。
      */
     cv::Mat median_filter(cv::Mat img, int kernel_size);
+
+    /**
+     * @brief Q11. 平滑化フィルタ
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @param kernel_size 平滑化フィルタの一辺の長さ。
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat mean_filter(cv::Mat img, int kernel_size);
 } // namespace mycv
 
 #endif
