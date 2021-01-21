@@ -151,6 +151,15 @@ namespace mycv
      * @return 1チャンネル8ビットの符号なしの画像。
      */
     cv::Mat prewitt_filter(cv::Mat img, int kernel_size, bool horizontal);
+
+    /**
+     * @brief Q16. Sobelフィルタ
+     * @param img 1チャンネル8ビットの符号なしの画像。
+     * @param kernel_size フィルタの一辺の長さ。
+     * @param horizontal true: 横方向にフィルタを適用する。false: 縦方向にフィルタを適用する。
+     * @return 1チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat sobel_filter(cv::Mat img, int kernel_size, bool horizontal);
 } // namespace mycv
 
 #endif
