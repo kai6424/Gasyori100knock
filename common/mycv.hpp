@@ -133,6 +133,15 @@ namespace mycv
      * @return 1チャンネル8ビットの符号なしの画像。
      */
     cv::Mat max_min_filter(cv::Mat img, int kernel_size);
+
+    /**
+     * @brief Q14. 微分フィルタ
+     * @param img 1チャンネル8ビットの符号なしの画像。
+     * @param kernel_size 微分フィルタの一辺の長さ。
+     * @param horizontal true: 横方向にフィルタを適用する。false: 縦方向にフィルタを適用する。
+     * @return 1チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat diff_filter(cv::Mat img, int kernel_size, bool horizontal);
 } // namespace mycv
 
 #endif
