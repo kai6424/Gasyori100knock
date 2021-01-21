@@ -637,4 +637,49 @@ namespace mycv
         }
         return out;
     }
+
+    // max min filter
+    cv::Mat max_min_filter(cv::Mat img, int kernel_size)
+    {
+        int height = img.rows;
+        int width = img.cols;
+        int channel = img.channels();
+
+        // prepare output
+        cv::Mat out = cv::Mat::zeros(height, width, CV_8UC1);
+
+        int pad = floor(kernel_size / 2);
+
+        double vmax = 0, vmin = 999, v = 0;
+
+        // filtering
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                vmax = 0;
+                vmin = 999;
+                for (int dy = -pad; dy < pad + 1; dy++)
+                {
+                    for (int dx = -pad; dx < pad + 1; dx++)
+                    {
+                        if (((y + dy) >= 0) && ((x + dx) >= 0) && ((y + dy) < height) && ((x + dx) < width))
+                        {
+                            v = (double)img.at<uchar>(y + dy, x + dx);
+                            if (v > vmax)
+                            {
+                                vmax = v;
+                            }
+                            if (v < vmin)
+                            {
+                                vmin = v;
+                            }
+                        }
+                    }
+                }
+                out.at<uchar>(y, x) = (uchar)(vmax - vmin);
+            }
+        }
+        return out;
+    }
 } // namespace mycv
