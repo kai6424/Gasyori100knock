@@ -285,3 +285,79 @@ int main(int argc, const char* argv[]){
 以上でチュートリアルは終了です。
 
 あとはばんばん問題を解いて下さい！！！！
+
+## その他
+
+### グラフの作成
+
+Pythonのmatplotlibを使用し、グラフを作成する。
+
+#### Python3のインストール
+
+```bash
+$ sudo apt install python3
+```
+
+#### 必要ライブラリのインストール
+
+```bash
+$ sudo apt install python3-numpy python-matplotlib
+```
+
+#### matplotlib-cppのインストール
+
+```bash
+$ cd ~
+$ git clone https://github.com/lava/matplotlib-cpp.git
+$ sudo cp --parents -i matplotlib-cpp/matplotlibcpp.h /usr/include/
+```
+
+`/usr/include/matplotlib-cpp/matplotlibcpp.h`が既に存在する場合、以下のようなメッセージが表示する。
+
+```bash
+cp: overwrite '/usr/include/matplotlib-cpp/matplotlibcpp.h'?
+```
+
+`y`を入力して`Enter`をタップする。
+
+#### サンプルプログラム
+
+以下をplot.cppとして保存
+
+```cpp
+#include <matplotlib-cpp/matplotlibcpp.h>
+
+namespace plt = matplotlibcpp;
+
+int main()
+{
+    plt::plot({1, 3, 2, 4});
+
+    // output（jpgでエラーになる）
+    plt::save("plot.png");
+
+    return 0;
+}
+```
+
+次にコンパイル
+
+```bash
+$ g++ plot.cpp -o plot -I/usr/include/python3.8 -lpython3.8
+```
+
+`-I/usr/include/python3.8`は、Python3.8のインクルードファイルのパスである。
+
+`-lpython3.8`は、Python3.8のライブラリをリンクする（python3.8は`/usr/lib/`に既に存在するため、ライブラリパスを追加する必要がない）。
+
+Pythonのバージョンが**3.8**以外の場合、`python3 --version`を実行し、各自の環境に合わせて修正してください。
+
+これで、コンパイルが通れば、フォルダ内に**plot**というものができます。
+
+あとは実行しましょう。
+
+```bash
+$ ./plot
+```
+
+![](plot.png)

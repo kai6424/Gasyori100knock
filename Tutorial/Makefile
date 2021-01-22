@@ -5,11 +5,11 @@ PROGRAM = sample
 OBJS = ${PROGRAM}.o
 
 # c++でPython3を使用する際に、以下を有効にする。
-# INCLUDES = -I/usr/include/python3.7
+INCLUDES = -I/usr/include/python3.8
 
-LIBS = -lopencv_core -lopencv_imgcodecs -lopencv_highgui
-# c++でPython3を使用する際に、上のLIBSを無効にし、以下を有効にする。
-# LIBS = -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lpython3.7
+# c++でPython3を使用する際に、上のLIBSを無効にし、下のLIBSを有効にする。
+# LIBS = -lopencv_core -lopencv_imgcodecs -lopencv_highgui
+LIBS = -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lpython3.8
 
 .PHONY: all
 all: $(PROGRAM)
