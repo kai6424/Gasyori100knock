@@ -359,3 +359,5 @@ Pythonのバージョンが**3.8**以外の場合、`python3 --version`を実行
 ```bash
 $ ./plot
 ```
+
+![](plot.png)
