@@ -176,6 +176,15 @@ namespace mycv
      * @return 1チャンネル8ビットの符号なしの画像。
      */
     cv::Mat emboss_filter(cv::Mat img, int kernel_size);
+
+    /**
+     * @brief Q19. LoGフィルタ
+     * @param img 1チャンネル8ビットの符号なしの画像。
+     * @param kernel_size フィルタの一辺の長さ。
+     * @param sigma 標準偏差
+     * @return 1チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat LoG_filter(cv::Mat img, int kernel_size, double sigma);
 } // namespace mycv
 
 #endif
