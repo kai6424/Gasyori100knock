@@ -168,6 +168,14 @@ namespace mycv
      * @return 1チャンネル8ビットの符号なしの画像。
      */
     cv::Mat laplacian_filter(cv::Mat img, int kernel_size);
+
+    /**
+     * @brief Q18. Embossフィルタ
+     * @param img 1チャンネル8ビットの符号なしの画像。
+     * @param kernel_size フィルタの一辺の長さ。
+     * @return 1チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat emboss_filter(cv::Mat img, int kernel_size);
 } // namespace mycv
 
 #endif
