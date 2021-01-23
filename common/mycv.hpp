@@ -188,6 +188,15 @@ namespace mycv
      * @return 1チャンネル8ビットの符号なしの画像。
      */
     cv::Mat LoG_filter(cv::Mat img, int kernel_size, double sigma);
+
+    /**
+     * @brief Q21. ヒストグラム正規化
+     * @param img 3チャンネル8ビットの符号なしの画像。
+     * @param a 画素の最小値
+     * @param b 画素の最大値
+     * @return 3チャンネル8ビットの符号なしの画像。
+     */
+    cv::Mat histogram_normalization(cv::Mat img, int a, int b);
 } // namespace mycv
 
 #endif
