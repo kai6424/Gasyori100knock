@@ -12,6 +12,9 @@
 #include <opencv2/highgui.hpp>
 #include <iostream>
 #include <math.h>
+#include <matplotlib-cpp/matplotlibcpp.h>
+
+namespace plt = matplotlibcpp;
 
 /**
  * @namespace mycv
